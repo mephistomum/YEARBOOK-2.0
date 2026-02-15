@@ -9,7 +9,11 @@
 </head>
 
 <body>
-  
+  <div style="text-align:center; margin:20px;">
+  <input type="text" id="searchID" placeholder="Enter Your ID">
+  <button onclick="goToUserPage()">Search</button>
+</div>
+
   <div class="flipbook">
     
     <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
@@ -18,14 +22,14 @@
       <small>Lets Look At Some Amazing Pokemon ❤️</small>
       <small>Gotta Catch 'Em All</small>
     </div>
-    <div>
+    <div data-names="mephistomum, snowsfate, snowfllay, Ryuno_Aika, Bbyshibaa, roguesiopao, KAEMOCHl, xCupcakeLuna, MorayFaerie">
       <img src="images/Sect 1G.png" alt="" />
       <!-- <small> Charmandar </small> -->
     </div>
     <div>
       <img src="images/Sect 1.png" alt="" />
     </div>
-    <div>
+    <div data-names="Lilyvic_k, Tsukiz6, kiittyfiend, nayoonmiwa, catsyIus, gatozayne, l3murian, junhs619, kttycharm">
       <img src="images/Sect 2G.png" alt="" />
       <!-- <small> Pikachu </small> -->
     </div>
@@ -33,9 +37,21 @@
       <img src="images/Sect 2.png" alt="" />
       <!-- <small> Mew </small> -->
     </div>
-    <div>
-      <img src="images/Sect 1.png" alt="" />
+    <div data-names="Karen_IGuess, sylvskitten, 5y1u51uvsm3, abyssleep, crowy_lore, 2shenwaifu, liriliya, slyverno, claireisch">
+      <img src="images/Sect 3G.png" alt="" />
       <!-- <small> Darkrai </small> -->
+    </div>
+        <div>
+      <img src="images/Sect 3.png" alt="" />
+      <!-- <small> Mew </small> -->
+    </div>
+        <div data-names="DearLoveLily, berrytheblur, kimsayu, s_o_r_a121, RafsJellyFish__, noctiflo, exochanyeolt, jinshims, alyaa_ayo">
+      <img src="images/Sect 4G.png" alt="" />
+      <!-- <small> Darkrai </small> -->
+    </div>
+        <div>
+      <img src="images/Sect 4.png" alt="" />
+      <!-- <small> Mew </small> -->
     </div>
     <div class="hard"></div>
     <div class="hard">Thank You <small>~ HankTheTank</small></div>
@@ -46,22 +62,56 @@
   <script src="jquery.js"></script>
   <script src="turn.js"></script>
 <script>
-  const flipbook = $(".flipbook");
 
-  flipbook.turn();
+const flipbook = $(".flipbook");
 
-  flipbook.bind("turning", function (event, page) {
-    const totalPages = flipbook.turn("pages");
+// Name → Page mapping
+let pageMap = {};
 
-    if (page === 1 || page === totalPages) {
-      flipbook.removeClass("shadow-active");
-    } else {
-      flipbook.addClass("shadow-active");
-    }
-  });
+$(".flipbook > div").each(function (index) {
+  const namesAttr = $(this).attr("data-names");
+
+  if (namesAttr) {
+    const namesArray = namesAttr.split(",");
+
+    namesArray.forEach(name => {
+      pageMap[name.trim().toLowerCase()] = index + 1;
+    });
+  }
+});
+
+// Initialize turn AFTER mapping
+flipbook.turn();
+
+flipbook.bind("turning", function (event, page) {
+  const totalPages = flipbook.turn("pages");
+
+  if (page === 1 || page === totalPages) {
+    flipbook.removeClass("shadow-active");
+  } else {
+    flipbook.addClass("shadow-active");
+  }
+});
+
+function goToUserPage() {
+  const inputName = document.getElementById("searchID").value.trim().toLowerCase();
+
+  if (pageMap[inputName]) {
+    flipbook.turn("page", pageMap[inputName]);
+  } else {
+    alert("Name not found!");
+  }
+}
+
+
 </script>
 
+    <canvas
+  id="sakuraCanvas"
+  style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+         pointer-events: none; z-index: -9999;"></canvas>
 
+<script src="sakura.js"></script>
 </body>
 
 </html>
