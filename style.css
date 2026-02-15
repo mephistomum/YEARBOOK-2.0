@@ -7,16 +7,54 @@
 	font-family: "Poppins", sans-serif;
 }
 
-body {
+/* body {
     display: grid;
     place-content: center;
     height: 100vh;
     width: 100vw;
 	overflow: hidden;
 	background: #fcfcfc;
+} */
+
+/* Default: desktop and tablets */
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #fcfcfc;
+}
+
+/* Phones in portrait (vertical) */
+@media only screen 
+  and (max-width: 767px) 
+  and (orientation: portrait) {
+    body {
+        height: 100vh;
+        width: 256vw;
+    }
+}
+
+/* Phones in landscape (horizontal) */
+@media only screen 
+  and (max-height: 767px) 
+  and (orientation: landscape) {
+    body {
+        height: 166vh;
+        width: 181vw;
+    }
 }
 
 
+/* horizontal phone
+height: 200vh;
+    width: 259vw;
+
+    vertical phone 
+
+    height: 100vh;
+    width: 256vw; */
 
 .flipbook {
     width: 730px;
