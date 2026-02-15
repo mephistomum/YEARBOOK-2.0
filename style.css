@@ -82,10 +82,12 @@ height: 200vh;
 
 
 .flipbook .hard {
-    background: #000000 !important;
-    color: #fff;
-    font-weight: bold;
+    font-size: 30px;
+    background: #928f8f !important;
+    color: #ffffffbb;
+    /* font-weight: bold; */
     border: none; 
+    font-family: "Mea Culpa", cursive;
 }
 
 .flipbook .hard small{
@@ -114,5 +116,76 @@ height: 200vh;
 .flipbook .page small{
 	font-size: 14px;
     margin-bottom: 10px;
+}
+
+.poem-container {
+    text-align: center;
+    /* margin: 40px auto; */
+    max-width: 600px;
+    line-height: 1.8;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+}
+
+.poem-title {
+    font-family: "Long Cang", cursive;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 9px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+}
+
+.poem-line {
+    font-size: 10px;
+    font-family: "Long Cang", cursive; /* ✅ Correct */
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+
+.poem-pinyin {
+    font-size: 10px;
+    font-style: normal;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.poem-translation {
+    font-size: 10px;
+    font-style: normal;
+    color: #444;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.poem-credit {
+    font-size: 8px;
+    font-style: italic;
+    color: #888;
+    margin-top: 30px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.long-cang-regular {
+  font-family: "Long Cang", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.mea-culpa-regular {
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
