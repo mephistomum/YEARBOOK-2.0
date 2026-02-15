@@ -90,6 +90,9 @@ height: 200vh;
     font-family: "Mea Culpa", cursive;
 }
 
+ 
+
+
 .flipbook .hard small{
 	font-style: italic;
 	font-weight: lighter;
@@ -97,7 +100,7 @@ height: 200vh;
 	font-size: 14px;
 }
 
-.flipbook .page {
+/* .flipbook .page {
     background: white;
 	display: flex;
 	flex-direction: column;
@@ -105,7 +108,9 @@ height: 200vh;
 	align-items: center;
     gap: 10px;
     border: 1px solid rgba(0, 0, 0, 0.11);
-}
+} */
+
+
 
 .page img{
 	width: 100%;
@@ -118,14 +123,58 @@ height: 200vh;
     margin-bottom: 10px;
 }
 
+/* .poem-page {
+    width: 730px;     
+    height: 530px;     
+    background-image: url('images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .poem-container {
     text-align: center;
-    /* margin: 40px auto; */
     max-width: 600px;
+    color: #333;
     line-height: 1.8;
-    font-family: "Poppins", sans-serif;
+} */
+
+.flipbook-page {
+    width: 730px;      /* flipbook page width */
+    height: 530px;     /* flipbook page height */
+    position: relative;
+}
+
+.poem-page {
+    width: 730px;      
+    height: 530px;     
+    position: relative;
+
+    /* Background */
+    background-image: url('images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Flex centering */
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+}
+
+.poem-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;       /* ensures container stretches for flex centering */
+    line-height: 1.8;
     color: #333;
 }
+
+
 
 .poem-title {
     font-family: "Long Cang", cursive;
@@ -188,4 +237,25 @@ height: 200vh;
   font-weight: 400;
   font-style: normal;
 }
+
+
+.hard-content {
+    display: block;         /* normal block layout */
+    text-align: center;     /* center text horizontally */
+    line-height: 1.5;       /* spacing between lines */
+    padding: 40px;          /* optional spacing from edges */
+    font-size: 30px;        /* same as .hard */
+    color: #ffffffbb;       /* same as .hard text */
+    font-family: "Mea Culpa", cursive;
+}
+
+.hard-content small {
+    display: block;         /* ensures small appears below text */
+    font-style: italic;
+    font-weight: lighter;
+    opacity: 0.7;
+    font-size: 14px;
+    margin-top: 10px;       /* optional spacing above small text */
+}
+
 
