@@ -117,8 +117,7 @@
   </div>
 </div>
 
-  </div>
-  
+
     
 
   <script src="jquery.js"></script>
@@ -167,18 +166,40 @@ function goToUserPage() {
 
 
 </script>
+  </div>
+  <div class="audio-controls">
+  <button id="playPauseBtn">⏸</button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.6">
+</div>
 <script>
   const bgm = document.getElementById("bgm");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const volumeSlider = document.getElementById("volumeSlider");
 
-  // Set volume to 20%
+  // Default volume
   bgm.volume = 0.6;
 
-  // Try autoplay
+  // Autoplay handling
   bgm.play().catch(() => {
-    console.log("Autoplay blocked. Will play on user interaction.");
     document.addEventListener("click", () => {
       bgm.play();
     }, { once: true });
+  });
+
+  // Play / Pause toggle
+  playPauseBtn.addEventListener("click", () => {
+    if (bgm.paused) {
+      bgm.play();
+      playPauseBtn.textContent = "⏸";
+    } else {
+      bgm.pause();
+      playPauseBtn.textContent = "▶";
+    }
+  });
+
+  // Volume control
+  volumeSlider.addEventListener("input", () => {
+    bgm.volume = volumeSlider.value;
   });
 </script>
 
@@ -188,6 +209,8 @@ function goToUserPage() {
          pointer-events: none; z-index: -9999;"></canvas>
 
 <script src="sakura.js"></script>
+
+  
 </body>
 
 </html>
